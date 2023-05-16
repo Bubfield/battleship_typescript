@@ -1,5 +1,6 @@
 export type GameState = {
   players: {player: Player; ai: Player};
+  aiTurn: boolean;
 };
 
 export type Ship = {

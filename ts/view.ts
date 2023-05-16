@@ -108,12 +108,17 @@ export default class View {
     this.$.modalBtn.addEventListener("click", handler);
   }
 
-  changeAxis() {
-    if (this.$.axisBtn.textContent === "Axis: X") {
-      this.$.axisBtn.textContent = "Axis: Y";
-    } else {
-      this.$.axisBtn.textContent = "Axis: X";
-    }
+  clearBoards() {
+    this.$.playerBoardShipsPS.textContent = "";
+    this.$.playerBoardSquaresPS.textContent = "";
+    this.$.playerBoardShipsBS.textContent = "";
+    this.$.playerBoardSquaresBS.textContent = "";
+    this.$.aiBoardShips.textContent = "";
+    this.$.aiBoardSquares.textContent = "";
+  }
+
+  changeAxis(axis: string) {
+    this.$.axisBtn.textContent = `Axis: ${axis.toUpperCase()}`;
   }
 
   clearPlaceShipScreenAnimation() {
@@ -219,10 +224,12 @@ export default class View {
   }
 
   openModal(message: string) {
-    this.$.modal.classList.remove("display-hidden");
-    this.$.battleScreen.classList.add("display-hidden");
-    const modalTextHTML = this.$.modalText as HTMLElement;
-    modalTextHTML.innerText = message;
+    setTimeout(() => {
+      this.$.modal.classList.remove("display-hidden");
+      this.$.battleScreen.classList.add("display-hidden");
+      const modalTextHTML = this.$.modalText as HTMLElement;
+      modalTextHTML.innerText = message;
+    }, 2000);
   }
 
   closeModal() {

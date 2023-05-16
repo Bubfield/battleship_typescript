@@ -2,13 +2,12 @@ import {GameState, Board, Cell, Player, Ship} from "./types";
 
 export default class Store {
   state: GameState;
-  aiTurn: boolean;
 
   constructor() {
     this.state = {
       players: {player: this.createPlayer(), ai: this.createPlayer()},
+      aiTurn: false,
     };
-    this.aiTurn = false;
   }
 
   createCell(ID: number): Cell {
@@ -160,5 +159,10 @@ export default class Store {
 
   getState(): GameState {
     return this.state;
+  }
+
+  resetState() {
+    this.state.players = {player: this.createPlayer(), ai: this.createPlayer()};
+    this.state.aiTurn = false;
   }
 }

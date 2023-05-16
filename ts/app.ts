@@ -121,19 +121,18 @@ function init() {
   view.bindChangeAxis(() => {
     const axis = placeShipsHelper.axis;
     placeShipsHelper.axis = axis === "x" ? "y" : "x";
-    view.changeAxis();
+    view.changeAxis(placeShipsHelper.axis);
   });
 
   view.bindMakeMove((square) => {
     const ai = store.getState().players.ai;
     const player = store.getState().players.player;
-
-    console.log(ai);
+    const aiTurn = store.getState().aiTurn;
 
     const squareHTML = square as HTMLElement;
     const squareID = Number(squareHTML.dataset.id);
 
-    if (ai.board[squareID].isShot || store.aiTurn) return;
+    if (ai.board[squareID].isShot || aiTurn) return;
 
     const ship = ai.board[squareID].ship;
 
@@ -146,7 +145,7 @@ function init() {
       view.openModal("Player wins!");
     }
 
-    store.aiTurn = true;
+    store.getState().aiTurn = true;
 
     setTimeout(() => {
       const unShotSquares = store.filterMovesForAI();
@@ -164,11 +163,18 @@ function init() {
         view.openModal("AI wins!");
       }
 
-      store.aiTurn = false;
+      store.getState().aiTurn = false;
     }, 3000);
   });
 
-  view.bindReset(() => {});
+  view.bindReset(() => {
+    store.resetState();
+    view.closeModal();
+    view.clearBoards();
+    view.renderPlayerBoard("place ships screen");
+    placeShipsHelper.i = 0;
+    playerShipsSVGInfo = [];
+  });
 }
 
 window.addEventListener("load", init);
