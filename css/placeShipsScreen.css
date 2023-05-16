@@ -1,0 +1,51 @@
+[data-id="place-ships-screen"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+div[data-id="axis-btn-div"] {
+  height: 50px;
+  text-align: center;
+}
+
+button[data-id="axis-btn"] {
+  cursor: pointer;
+  padding: 10px;
+}
+
+#board-section {
+  height: 70vh;
+  width: 98vw;
+  display: flex;
+  justify-content: center;
+}
+
+.outer-board-PS {
+  position: absolute;
+}
+
+.board {
+  display: grid;
+  grid-template: repeat(10, 3rem) / repeat(10, 3rem);
+  gap: 4px;
+}
+
+.player-square {
+  height: 50px;
+  width: 50px;
+  border: 1px solid white;
+  display: flex;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

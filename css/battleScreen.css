@@ -1,0 +1,139 @@
+[data-id="battle-screen"] {
+  animation: 1s linear 0s 1 normal none running fadein;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  margin: 0;
+}
+
+#right-before-root {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  background: linear-gradient(
+    90deg,
+    rgb(2, 0, 36) 0%,
+    rgb(0, 0, 61) 29%,
+    rgb(0, 0, 64) 76%,
+    rgb(1, 0, 37) 100%
+  );
+  overflow: auto;
+}
+
+#even-more-outer-BS {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 1rem auto 0px;
+  flex: 1 1 0%;
+}
+
+#outer-battle-section {
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#battle-section {
+  display: grid;
+  grid-template-rows: 4rem auto 32rem;
+  grid-template-columns: 1fr 1fr;
+  margin: 2% auto 4rem;
+  width: 100%;
+  max-width: 1200px;
+  animation: 2s ease 0s 1 normal none running fadein;
+}
+
+#battle-dialogue-outer-div {
+  display: flex;
+  margin: auto;
+  height: 100%;
+  text-align: center;
+  grid-column: 1 / span 2;
+  width: 70%;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgb(55, 55, 55) 0%,
+    rgb(41, 41, 41) 29%,
+    rgb(41, 41, 41) 76%,
+    rgb(56, 56, 56) 100%
+  );
+  font-family: "Special Elite", monospace;
+  font-size: 1.4rem;
+}
+
+#battle-dialogue-outer-div p {
+  margin: auto;
+  color: #ddd;
+}
+
+.waters-div {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.waters-div h1 {
+  margin: auto;
+  color: #ddd;
+}
+
+.outermost-board-div {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.outer-board-BS {
+  position: absolute;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  left: 0px;
+  right: 0px;
+}
+
+.board {
+  display: grid;
+  grid-template: repeat(10, 3rem) / repeat(10, 3rem);
+  gap: 4px;
+  position: relative;
+  margin: 0px auto;
+}
+
+.ai-square {
+  height: 50px;
+  width: 50px;
+  border: 1px solid white;
+  display: flex;
+}
+
+.square-not-shot:hover {
+  background-color: rgb(33, 138, 33);
+  cursor: crosshair;
+}
+
+.square-shot:hover {
+  background-color: rgb(255, 15, 15, 0.6);
+  cursor: not-allowed;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

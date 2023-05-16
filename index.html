@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/placeShipsScreen.css" rel="stylesheet" />
+    <link href="css/battleScreen.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- PLACE SHIPS SCREEN -->
+    <div data-id="place-ships-screen">
+      <div data-id="axis-btn-div">
+        <button type="button" data-id="axis-btn">Axis: X</button>
+      </div>
+      <div id="board-section">
+        <div class="outer-board-PS">
+          <div class="board" id="player-board-1-PS"></div>
+        </div>
+        <div class="outer-board-PS">
+          <div class="board" id="player-board-2-PS"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATTLE SCREEN -->
+    <div id="root" data-id="battle-screen" class="display-hidden">
+      <div id="right-before-root">
+        <div id="even-more-outer-BS">
+          <div id="outer-battle-section">
+            <section id="battle-section">
+              <div id="battle-dialogue-outer-div">
+                <p>Hello World</p>
+              </div>
+              <div class="waters-div">
+                <h1>friendly waters</h1>
+              </div>
+              <div class="waters-div">
+                <h1>enemy waters</h1>
+              </div>
+              <div class="outermost-board-div">
+                <div class="outer-board-BS">
+                  <div class="board" id="player-board-1-BS"></div>
+                </div>
+                <div class="outer-board-BS">
+                  <div class="board" id="player-board-2-BS"></div>
+                </div>
+              </div>
+              <div class="outermost-board-div">
+                <div class="outer-board-BS">
+                  <div class="board" id="ai-board-1"></div>
+                </div>
+                <div class="outer-board-BS">
+                  <div class="board" id="ai-board-2"></div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAME OVER MODAL -->
+    <div class="modal display-hidden" data-id="modal">
+      <div class="modal-contents">
+        <p data-id="modal-text">Player 1 wins!</p>
+        <button type="button" data-id="modal-btn">Play again</button>
+      </div>
+    </div>
+
+    <script src="/dist/app.js" type="module"></script>
+  </body>
+</html>
